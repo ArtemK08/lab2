@@ -27,18 +27,18 @@ car_services = [
     {"id": 20, "name": "Комп'ютерна діагностика систем", "mileage_interval": 15000, "cost": 800}
 ]
 
-#  1. Звичайні функції
+#   Звичайні функції
 def calculate_remaining_mileage(current_mileage: int, last_service_mileage: int, interval: int) -> int:
     """Розраховує залишок пробігу до наступного обслуговування."""
     next_service = last_service_mileage + interval
     return next_service - current_mileage
 
 def format_service_info(service_name: str, cost: float) -> str:
-    """Форматує рядок із назвою послуги та її вартістю."""
+    """Форматування рядку із назвою послуги та її вартістю."""
     return f"Послуга: {service_name} | Вартість: {cost:.2f} грн"
 
 
-#  2. Функція з параметрами за замовчуванням
+#   Функція з параметрами за замовчуванням
 def calculate_service_cost_with_tax(base_cost: float, discount_percent: float = 0.0, tax_rate: float = 0.0) -> float:
     """Розраховує кінцеву вартість послуги з урахуванням знижки та податку за замовчуванням."""
     discounted = base_cost * (1 - discount_percent / 100)
@@ -46,18 +46,18 @@ def calculate_service_cost_with_tax(base_cost: float, discount_percent: float = 
     return round(final_cost, 2)
 
 
-#  3. Функція зі змінною кількістю аргументів (*args)
+#   Функція зі змінною кількістю аргументів (*args)
 def total_additional_expenses(*expenses: float) -> float:
     """Обчислює суму довільної кількості додаткових непередбачуваних витрат."""
     return sum(expenses)
 
 
-#  4. Лямбда-функція
+
 # Розраховує вартість зі знижкою
 apply_discount = lambda cost, percent: round(cost * (1 - percent / 100), 2)
 
 
-#  5. Рекурсивна функція
+#  . Рекурсивна функція
 def calculate_projected_cost(years: int, base_cost: float, annual_inflation: float) -> float:
     """Рекурсивно обчислює прогнозовану вартість обслуговування за N років з урахуванням інфляції."""
     if years <= 0:
@@ -68,7 +68,7 @@ def calculate_projected_cost(years: int, base_cost: float, annual_inflation: flo
     return base_cost + calculate_projected_cost(years - 1, base_cost * (1 + annual_inflation / 100), annual_inflation)
 
 
-#  6. Функції вищого порядку та функціональне програмування
+# . Функції вищого порядку та функціональне програмування
 def apply_to_services(services: list, func: callable) -> list:
     """Приймає іншу функцію як аргумент та застосовує її до кожного елемента списку (функція вищого порядку)."""
     return [func(item) for item in services]
@@ -78,7 +78,7 @@ def filter_budget_services(services: list, max_cost: float) -> list:
     return list(filter(lambda s: s['cost'] <= max_cost, services))
 
 
-#  7. Інтерактивна програма (меню)
+#  . Інтерактивна програма (меню)
 def main():
     print("Вітаємо в системі планування технічного обслуговування автомобіля")
 
@@ -148,7 +148,7 @@ def main():
                     print(item)
 
             elif choice == 8:
-                print("Дякуємо за використання програми! До побачення.")
+                print("Дякуємо за використання програми!")
                 break
             else:
                 print("Невірний вибір. Будь ласка, оберіть число від 1 до 8.")
